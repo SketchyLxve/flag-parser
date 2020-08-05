@@ -17,6 +17,10 @@ int main()
     cout << "Input: " << input << "\n";
 
     for (int i = 0; i < flags.size(); i++)
-        cout << "\n  Iteration " << i + 1 << "  |" << "\n================\n" << "Initial: "  << flags[i].initial << "\nFlag: " << flags[i].flag << "\nValue: " << flags[i].value << endl;
+        cout << "\n  Iteration " << i + 1 << "  |"
+        << "\n================\n"
+        << "Initial: "  << flags[i].initial
+        << "\nFlag: " << flags[i].flag
+        << "\nValue: " << flags[i].value << endl;
     return 0;
 }
