@@ -17,5 +17,5 @@ vector<string> find_all(string input, smatch match, regex pattern, vector<string
         return find_all(input, match, pattern, matches);
     }
     
-    else return matches;
+    return matches;
 }
