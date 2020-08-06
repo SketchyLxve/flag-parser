@@ -56,7 +56,7 @@ int main(int argc, char** argv)
                 flag.init(arg, ahead);
 
 
-            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size())
+            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size() || ahead.length() <= 0)
                 flag.init(arg, arg);
 
         }
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
                 flag.init(arg, ahead);
 
 
-            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size())
+            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size() || ahead.length() <= 0)
                 flag.init(arg, arg);
 
         }
