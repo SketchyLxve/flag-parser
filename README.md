@@ -1,24 +1,10 @@
-Flag Parser
-=== 
-FP (a better name coming soon) is a minuscule parser which extracts all flags, options, & such, from a specified input. <br>
-The main component of it is Regex. However, regular expressions in C++ do not have `global` support. <br>
-
-Which is why there is a designated method using recursion in order to find all matches in the string. <br>
-It was the most efficient way of doing it I could possibly think of, as this was written by a beginner.
-
-Inspiration
+STL CLI Flag Parser
 ===
-The main inspiration for this project was [1Compu](https://github.com/1Computer1)'s parser/utility for non-technical user input — [Lexure](https://github.com/1Computer1/lexure) <br>
-This idea is in no way original, however it is not a complete replica / remake of the aforementioned.
+This version of the parser is achieved by only using the core components of C++, such as the `string` & `vector` headers, as well as `argc` and `argv`, which is "baked" into the language itself. <br>
 
-<br>
+Originally, the idea was to build the parser from scratch, with the addition of using only the aforementioned headers. Though, the idea was absolutely ridiculuous and would take a lot of time (which is not a resource available to me during this period) and is incredibly difficult. <br>
 
-Author
-=== 
-Authored and maintained by [Sketchy](https://github.com/SketchyLxve).
+However, it will come out eventually, under the branch `stl-core`.
 
-Outlets:
-
-> Github @ [SketchyLxve](https://github.com/SketchyLxve) <br>
-> Twitter @ [Xanny](https://twitter.com/eboy_sleepy) <br>
-> Discord @ xanax#1327
+Special thank you to a friend of mine, nicknamed `Cheeze`, for bringing this idea up. 
+Their discord is: `cheeze#2000`
