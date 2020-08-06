@@ -11,14 +11,11 @@ Inspiration
 The main inspiration for this project was [1Compu](https://github.com/1Computer1)'s parser/utility for non-technical user input — [Lexure](https://github.com/1Computer1/lexure) <br>
 This idea is in no way original, however it is not a complete replica / remake of the aforementioned.
 
-<br>
-
 Author
 === 
 Authored and maintained by [Sketchy](https://github.com/SketchyLxve).
 
 Outlets:
-
 > Github @ [SketchyLxve](https://github.com/SketchyLxve) <br>
 > Twitter @ [Xanny](https://twitter.com/eboy_sleepy) <br>
 > Discord @ xanax#1327
