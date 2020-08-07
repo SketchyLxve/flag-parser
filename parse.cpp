@@ -31,22 +31,19 @@ vector<ParsedFlag> get_flags(string input)
         }
 
         if (it->find('-') <= it->max_size()) {
-
             if (
-                copy.find('-') <= it->max_size() && copy.find('=') <= it->max_size() &&
+                copy.find('=') <= it->max_size() &&
                 copy.substr(1, copy.find('=') - 1).length() == 3
                 ) {
                 copy.erase(copy.find('-'), 1);
                 vector<string> s = split(copy, "=", _);
-                vector<ParsedFlag> _flags;
-                ParsedFlag _flag;
 
                 for (int i = 0; i < 3; i++)
                 {
                     string d = string(1, s[0][i]);
-                    _flag.init(d, i < 2 ? d : s[1]);
+                    flag.init(d, i < 2 ? d : s[1]);
 
-                    flags.push_back(_flag);
+                    flags.push_back(flag);
                 }
 
                 ++it;
@@ -70,6 +67,9 @@ vector<ParsedFlag> get_flags(string input)
                     sub.find("--") <= sub.max_size() ? sub.erase(sub.find("--"), 2) : sub.erase(sub.find('-'), 1),
                     (it + 1)->substr(0, (it + 1)->length())
                 );
+
+                values.erase(it);
+                continue;
             }
 
             if (flag.value.length() <= 0)
@@ -77,9 +77,7 @@ vector<ParsedFlag> get_flags(string input)
         }
 
         ++it;
-        auto iter = find_if(flags.begin(), flags.end(), [&](const ParsedFlag& t) { return flag.flag == t.flag && flag.value == t.value; });
-        if (iter == flags.end())
-            flags.push_back(flag);
+        flags.push_back(flag);
     }
 
     int i = 0;
