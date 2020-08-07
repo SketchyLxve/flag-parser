@@ -19,9 +19,6 @@ int main()
     string input = "your mom --gay=yes --verbose=\"haha ok\" --desc \"yeah okay\" -a 2 -c -f -g=1 -abc=1";
     vector<ParsedFlag> args = get_flags(input);
 
-    sort(args.begin(), args.end(), &is_equal);
-    args.erase(unique(args.begin(), args.end(), &is_equal), args.end());
-
     for (auto f : args)
     {
         cout << "(" << f.flag << ", " << f.value << ")" << endl;
