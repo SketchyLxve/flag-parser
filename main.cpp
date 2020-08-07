@@ -5,14 +5,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
-
-bool is_equal(const ParsedFlag &a, const ParsedFlag &b)
-{
-    return a.flag == b.flag && a.flag == b.value;
-}
 
 int main()
 {
