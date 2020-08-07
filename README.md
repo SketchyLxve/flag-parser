@@ -1,10 +1,11 @@
-STL CLI Flag Parser
+STL-Core
 ===
-This version of the parser is achieved by only using the core components of C++, such as the `string` & `vector` headers, as well as `argc` and `argv`, which is "baked" into the language itself. <br>
+`STL-Core` is a version of the CLI Flag Parser where the only components available are the `string` and `vector` headers. <br>
 
-Originally, the idea was to build the parser from scratch, with the addition of using only the aforementioned headers. Though, the idea was absolutely ridiculuous and would take a lot of time (which is not a resource available to me during this period) and is incredibly difficult. <br>
+Excluding the usage of `argc`/`argv` indefinitely. <br>
 
-However, it will come out eventually, under the branch `stl-core`.
+The purpose behind this is to see how long, and how difficult it would be, to create a basic CLI flag parser by only using the core components of the language (again, excluding `argc`/`argv`).
 
-Special thank you to a friend of mine, nicknamed `Cheeze`, for bringing this idea up. 
-Their discord is: `cheeze#2000`
+Results
+===
+It took me, a C++ beginner- who has only worked in C++ for 3 days, 6 hours in order to construct all of this and make it work properly.

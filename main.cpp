@@ -1,88 +1,28 @@
+#include "split.h"
+#include "parse.h"
+#include "replace.h"
+
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
-struct ParsedFlag {
-    string flag, value;
-
-    ParsedFlag init(string f, string v)
-    {
-        flag = f;
-        value = v;
-
-        return *this;
-    }
-};
-
-vector<string> split(string input, string delim, vector<string> store)
+bool is_equal(const ParsedFlag &a, const ParsedFlag &b)
 {
-    if (input.find(delim) >= input.max_size()) {
-        store.push_back(input);
-        return store;
-    }
-
-    string sub = input.substr(0, input.find(delim));
-    store.push_back(sub);
-    input.erase(input.find(sub), sub.length() + delim.length());
-
-    return split(input, delim, store);
+    return a.flag == b.flag && a.flag == b.value;
 }
 
-int main(int argc, char** argv)
+int main()
 {
-    vector<string> _;
-    vector<ParsedFlag> flags;
+    string input = "your mom --gay=yes --verbose=\"haha ok\" --desc \"yeah okay\" -a 2 -c -f -g=1 -abc=1";
+    vector<ParsedFlag> args = get_flags(input);
 
-    for (int i = 0; i < argc; i++)
-    {
-        string arg = argv[i];
-        string ahead = argv[i + 1] ? argv[i + 1] : "";
-        ParsedFlag flag;
+    sort(args.begin(), args.end(), &is_equal);
+    args.erase(unique(args.begin(), args.end(), &is_equal), args.end());
 
-        if (arg.find("--") <= arg.max_size()) {
-            arg.erase(arg.find("-"), 2);
-
-            if (arg.find('=') <= arg.max_size()) {
-                vector<string> splitten = split(arg, "=", _);
-                string f = splitten[0];
-                string v = splitten[1];
-
-                flag.init(f, v);
-            }
-
-            else if (ahead.length() > 0 && ahead.find('-') >= ahead.max_size())
-                flag.init(arg, ahead);
-
-
-            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size() || ahead.length() <= 0)
-                flag.init(arg, arg);
-
-        }
-        else if (arg.find('-') <= arg.max_size()) {
-            arg.erase(arg.find('-'), 1);
-
-            if (arg.find('=') <= arg.max_size()) {
-                vector<string> splitten = split(arg, "=", _);
-                string f = splitten[0];
-                string v = splitten[1];
-
-                flag.init(f, v);
-            }
-
-            else if (ahead.length() > 0 && ahead.find('-') >= ahead.max_size())
-                flag.init(arg, ahead);
-
-
-            else if (ahead.length() > 0 && ahead.find('-') <= ahead.max_size() || ahead.length() <= 0)
-                flag.init(arg, arg);
-
-        }
-        if (flag.flag.length() > 0 && flag.value.length() > 0) flags.push_back(flag);
-    }
-
-    for (auto f : flags)
+    for (auto f : args)
     {
         cout << "(" << f.flag << ", " << f.value << ")" << endl;
     }
