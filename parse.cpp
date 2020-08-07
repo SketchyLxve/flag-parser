@@ -71,6 +71,9 @@ vector<ParsedFlag> get_flags(string input)
                     (it + 1)->substr(0, (it + 1)->length())
                 );
             }
+
+            if (flag.value.length() <= 0)
+                flag.value = flag.flag;
         }
 
         ++it;

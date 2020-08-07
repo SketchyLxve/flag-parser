@@ -16,7 +16,7 @@ bool is_equal(const ParsedFlag &a, const ParsedFlag &b)
 
 int main()
 {
-    string input = "your mom --gay=yes --verbose=\"haha ok\" --desc \"yeah okay\" -a 2 -c -f -g=1 -abc=1";
+    string input = "your mom --gay=yes --verbose=\"haha ok\" --desc \"yeah okay\" -a 2 -c -f -g=1 -abc=1 --reee";
     vector<ParsedFlag> args = get_flags(input);
 
     for (auto f : args)
